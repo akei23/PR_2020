@@ -7,13 +7,13 @@ import rospy
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Joy
 
-buttons = []
+from pickup_2020 import pr_control
 
 pub = rospy.Publisher('chatter', Joy, queue_size=10)
 
 def callback_joy(buf):
-    buttons = buf.buttons
-    pub.publish(buttons)
+    buttons = buf.buttons[0]
+    pub.publish(buf)
 
 sub = rospy.Subscriber('joysub', Joy, callback_joy)
 

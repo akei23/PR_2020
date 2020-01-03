@@ -9,6 +9,7 @@ project(pickup_2020)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rospy
+  roscpp
   std_msgs
   message_generation
 )
@@ -50,9 +51,9 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   pr_control.msg
-#   Message1.msg
-#   Message2.msg
-# )
+#  Message1.msg
+#  Message2.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -106,8 +107,8 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pickup_2020
-#  CATKIN_DEPENDS rospy std_msgs
-#  DEPENDS system_lib
+  CATKIN_DEPENDS rospy std_msgs message_runtime
+  DEPENDS system_lib
 )
 
 ###########
@@ -117,7 +118,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
