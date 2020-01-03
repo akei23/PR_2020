@@ -116,7 +116,7 @@ if(NOT "/home/akei/catkin_ws/devel/include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "pickup_2020")
+set(libraries "")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
