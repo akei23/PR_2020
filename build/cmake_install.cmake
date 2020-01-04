@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/akei/catkin_ws/build/gtest/cmake_install.cmake")
+  include("/home/akei/catkin_ws/build/pr_msg/cmake_install.cmake")
   include("/home/akei/catkin_ws/build/pickup_2020/cmake_install.cmake")
 
 endif()

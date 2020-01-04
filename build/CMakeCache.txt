@@ -372,6 +372,15 @@ pickup_2020_BINARY_DIR:STATIC=/home/akei/catkin_ws/build/pickup_2020
 //Value Computed by CMake
 pickup_2020_SOURCE_DIR:STATIC=/home/akei/catkin_ws/src/pickup_2020
 
+//Value Computed by CMake
+pr_msg_BINARY_DIR:STATIC=/home/akei/catkin_ws/build/pr_msg
+
+//The directory containing a CMake configuration file for pr_msg.
+pr_msg_DIR:PATH=/home/akei/catkin_ws/devel/share/pr_msg/cmake
+
+//Value Computed by CMake
+pr_msg_SOURCE_DIR:STATIC=/home/akei/catkin_ws/src/pr_msg
+
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/melodic/share/rosconsole/cmake
 
@@ -512,7 +521,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -1,2 +1,2 @@
-pickup_2020
+pickup_2020:pr_msg
 -DCATKIN_DEVEL_PREFIX=/home/akei/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/akei/catkin_ws/install -G Unix Makefiles

@@ -1,8 +1,8 @@
 
 "use strict";
 
-let pr_control = require('./pr_control.js');
+let PR_control = require('./PR_control.js');
 
 module.exports = {
-  pr_control: pr_control,
+  PR_control: PR_control,
 };

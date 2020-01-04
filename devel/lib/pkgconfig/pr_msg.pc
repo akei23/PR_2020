@@ -1,0 +1,8 @@
+prefix=/home/akei/catkin_ws/devel
+
+Name: pr_msg
+Description: Description of pr_msg
+Version: 0.0.0
+Cflags: -I/home/akei/catkin_ws/devel/include
+Libs: -L/home/akei/catkin_ws/devel/lib 
+Requires: rospy std_msgs message_runtime
