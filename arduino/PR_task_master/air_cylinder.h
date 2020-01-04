@@ -6,6 +6,7 @@
 class AirCylinder {
   public:
     AirCylinder(int shot_pin,int pull_pin);
+    void init();
     void shot();
     void pull();
 

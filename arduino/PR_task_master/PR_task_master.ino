@@ -12,6 +12,12 @@
 #include "air_cylinder.h"
 
 
+#define PICK_GRASP_SHOT_PIN 2
+#define PICK_GRASP_PULL_PIN 3
+#define PASS_TEE_SHOT_PIN 4
+#define PASS_TEE_PULL_PIN 5
+
+
 ros::NodeHandle  nh;
 
 struct MotorHandler
@@ -30,8 +36,8 @@ IseMotorDriver pick_slide = IseMotorDriver(0x11);//11
 IseMotorDriver pick_turn = IseMotorDriver(0x12);//12
 IseMotorDriver pick_lift = IseMotorDriver(0x13);//13    
 
-AirCylinder pick_grasp = AirCylinder(2,3);
-AirCylinder pass_tee = AirCylinder(4,5);
+AirCylinder pick_grasp = AirCylinder(PICK_GRASP_SHOT_PIN,PICK_GRASP_PULL_PIN);
+AirCylinder pass_tee = AirCylinder(PASS_TEE_SHOT_PIN,PASS_TEE_PULL_PIN);
 
                                                         
 MotorHandler pick_slide_handler;
@@ -86,6 +92,13 @@ void setup() {
   nh.initNode();
 
   nh.subscribe(sub);
+
+  pinMode(PICK_GRASP_SHOT_PIN,OUTPUT);
+  pinMode(PICK_GRASP_PULL_PIN,OUTPUT);
+  pinMode(PASS_TEE_SHOT_PIN,OUTPUT);
+  pinMode(PASS_TEE_PULL_PIN,OUTPUT);
+  pick_grasp.init();
+  pass_tee.init();
  
 
   

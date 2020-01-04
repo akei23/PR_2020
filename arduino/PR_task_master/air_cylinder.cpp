@@ -10,6 +10,12 @@ AirCylinder::AirCylinder(int shot_pin,int pull_pin){
   
 }
 
+void AirCylinder::init(){
+
+  digitalWrite(this->shot_pin,HIGH);
+  digitalWrite(this->pull_pin,HIGH);
+
+}
 
 void AirCylinder::shot(){
 
