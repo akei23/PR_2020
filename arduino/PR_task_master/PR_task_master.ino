@@ -5,7 +5,7 @@
 #include <Wire.h>
 
 #include <ros.h>
-#include <pickup_2020/pr_control.h>
+#include <pr_msg/PrMsg.h>
 
 #include "ti2c.h"
 #include "ise_motor_driver.h"
@@ -52,7 +52,7 @@ void set_target(MotorHandler *mh, double target)
 
 
 
-void task_cb(const pickup_2020::pr_control& msg)
+void task_cb(const pr_msg::PrMsg& msg)
 {
   set_target(&pick_slide_handler, msg.pick_slide);
   set_target(&pick_turn_handler, msg.pick_turn);
@@ -71,7 +71,7 @@ void task_cb(const pickup_2020::pr_control& msg)
 
 
 
-ros::Subscriber<pickup_2020::pr_control>sub("topic_name",task_cb);
+ros::Subscriber<pr_msg::PrMsg>sub("command_serial",task_cb);
 
 
 // ==================== functions ==================== //
