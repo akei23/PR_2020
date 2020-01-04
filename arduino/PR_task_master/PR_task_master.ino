@@ -68,11 +68,13 @@ void task_cb(const pr_msg::PrMsg& msg)
   pick_turn.setSpeed(pick_turn_handler.target);
   pick_slide.setSpeed(pick_lift_handler.target);
 
-  if(msg.pick_grasp) pick_grasp.shot();
-  else pick_grasp.pull();
+  if(msg.pick_grasp==1) pick_grasp.shot();
+  else if(msg.pick_grasp==-1) pick_grasp.pull();
+  else pick_grasp.init();
 
-  if(msg.pass_tee) pass_tee.shot();
-  else pass_tee.pull();
+  if(msg.pass_tee == 1) pass_tee.shot();
+  else if(msg.pass_tee == -1)pass_tee.pull();
+  else pass_tee.init();
 }
 
 
