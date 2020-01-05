@@ -52,11 +52,11 @@ pickup_2020.py
 |pick_grasp|③|①|
 |pass_tee|④|②|
 
-| DC_moter    | cw   | ccw  |
+| DC_moter    |cw|ccw|
 |:-----------:|:----:|:----:|
 |pick_lift    |上十字|下十字 |
 |pick_slide   |左十字|右十字 |
-|pick_turn    |⑦　　　　|⑧　　　　|
+|pick_turn    |⑦|⑧|
 
 # ジョイスティックのボタン配置
 
