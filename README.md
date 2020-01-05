@@ -45,19 +45,18 @@ pickup_2020.py
 	[joy](sensor_msgs/Joy): joyコントローラの入力  
 
 
-	ジョイスティックのボタンとと駆動の仕方の対応表  
+ジョイスティックのボタンとと駆動の仕方の対応表  
 
-	|AirCylinder|shot|pull|
-	|:----:|:----:|:----:|
-	|pick_grasp|③|①|
-	|pass_tee|④|②|
+|AirCylinder|shot|pull|
+|:----:|:----:|:----:|
+|pick_grasp|③|①|
+|pass_tee|④|②|
 
-
-	| DC_moter    | cw   | ccw  |
-	|:-----------:|:----:|:----:|
-	|pick_lift    |上十字|下十字 |
-	|pick_slide   |左十字|右十字 |
-	|pick_turn    |⑦　　　　|⑧　　　　|
+| DC_moter    | cw   | ccw  |
+|:-----------:|:----:|:----:|
+|pick_lift    |上十字|下十字 |
+|pick_slide   |左十字|右十字 |
+|pick_turn    |⑦　　　　|⑧　　　　|
 
 # ジョイスティックのボタン配置
 
