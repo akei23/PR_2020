@@ -49,10 +49,9 @@ pickup_2020.py
 
 	| AirCylinder | shot | pull |
 	|:-----------:|:----:|:----:|
+	|pick_grasp|③|①|
+	|pass_tee|④|②|
 
-	|pick_grasp   |③　　　　|①　　　　|
-	|pass_tee     |④　　　　|②　　　　|
-	|pick_grasp   |③　　　　|④　　　　|
 
 	| DC_moter    | cw   | ccw  |
 	|:-----------:|:----:|:----:|
