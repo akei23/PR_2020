@@ -47,8 +47,8 @@ pickup_2020.py
 
 	ジョイスティックのボタンとと駆動の仕方の対応表  
 
-	| AirCylinder | shot | pull |
-	|:-----------:|:----:|:----:|
+	|AirCylinder|shot|pull|
+	|:----:|:----:|:----:|
 	|pick_grasp|③|①|
 	|pass_tee|④|②|
 
