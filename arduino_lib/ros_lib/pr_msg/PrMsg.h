@@ -22,8 +22,8 @@ namespace pr_msg
       _pick_lift_type pick_lift;
       typedef int32_t _kick_roll_type;
       _kick_roll_type kick_roll;
-      typedef int32_t _Kick_fire_type;
-      _Kick_fire_type Kick_fire;
+      typedef int32_t _kick_fire_type;
+      _kick_fire_type kick_fire;
       typedef int32_t _pass_tee_type;
       _pass_tee_type pass_tee;
 
@@ -33,7 +33,7 @@ namespace pr_msg
       pick_turn(0),
       pick_lift(0),
       kick_roll(0),
-      Kick_fire(0),
+      kick_fire(0),
       pass_tee(0)
     {
     }
@@ -94,13 +94,13 @@ namespace pr_msg
       union {
         int32_t real;
         uint32_t base;
-      } u_Kick_fire;
-      u_Kick_fire.real = this->Kick_fire;
-      *(outbuffer + offset + 0) = (u_Kick_fire.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_Kick_fire.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_Kick_fire.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_Kick_fire.base >> (8 * 3)) & 0xFF;
-      offset += sizeof(this->Kick_fire);
+      } u_kick_fire;
+      u_kick_fire.real = this->kick_fire;
+      *(outbuffer + offset + 0) = (u_kick_fire.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_kick_fire.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_kick_fire.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_kick_fire.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->kick_fire);
       union {
         int32_t real;
         uint32_t base;
@@ -175,14 +175,14 @@ namespace pr_msg
       union {
         int32_t real;
         uint32_t base;
-      } u_Kick_fire;
-      u_Kick_fire.base = 0;
-      u_Kick_fire.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_Kick_fire.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_Kick_fire.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_Kick_fire.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      this->Kick_fire = u_Kick_fire.real;
-      offset += sizeof(this->Kick_fire);
+      } u_kick_fire;
+      u_kick_fire.base = 0;
+      u_kick_fire.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_kick_fire.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_kick_fire.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_kick_fire.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->kick_fire = u_kick_fire.real;
+      offset += sizeof(this->kick_fire);
       union {
         int32_t real;
         uint32_t base;
@@ -198,7 +198,7 @@ namespace pr_msg
     }
 
     const char * getType(){ return "pr_msg/PrMsg"; };
-    const char * getMD5(){ return "145426011257f665260f74de824eb711"; };
+    const char * getMD5(){ return "0b7477fdb01b1f98d79601f95a7c0be2"; };
 
   };
 
