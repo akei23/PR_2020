@@ -21,13 +21,13 @@ ros::NodeHandle nh;
 int fire_order = 0;
 
 //--------set address of motor driver---------
-IseMotorDriver kick_roll = IseMotorDriver(0x30)
+IseMotorDriver kick_roll = IseMotorDriver(0x30);
 
-void fire(){
- if(digitalRead(TOUCH_PIN) == 1 && fire_order == 1){
-  digitalWrite(FIRE_PIN,HIGH);
-  firetimer = ros::Time::now();
- }
+void fire(int fire_comand){
+ //if(digitalRead(TOUCH_PIN) == 1 && fire_order == 1){
+  digitalWrite(FIRE_PIN,fire_comand);
+  //fire_timer = ros::Time::now();
+ //}
 }
 
 //callback function
@@ -38,9 +38,11 @@ void kick_cb(const pr_msg::PrMsg& msg){
   static long encDist;
   static bool flag = false;
   
-  fire_order = msg.kick_fire;
+  fire_order = msg.Kick_fire;
+
+  fire(fire_order);
   
-  if(msg.kick_roll >= 0 && !flag){
+  /*if(msg.kick_roll >= 0 && !flag){
     kick_roll.setSpeed(int(msg.kick_roll));
     encStart = kick_roll.encoder();
     flag = true;
@@ -53,7 +55,7 @@ void kick_cb(const pr_msg::PrMsg& msg){
   }
   if(kick_roll.encoder() - encEnd < encDist && !flag){
     kick_roll.setSpeed(int(msg.kick_roll));
-  }
+  }*/
 }
 
 //definition of subscrber
@@ -67,13 +69,14 @@ void setup() {
   nh.subscribe(sub);
 
   pinMode(TOUCH_PIN,INPUT);
+  pinMode(FIRE_PIN,OUTPUT);
 }
 
 void loop() {
-  now = ros::Time::now();
-  if(firetimer.sec + DURATION > now.sec){
+//  now = ros::Time::now();
+  /*f(firetimer.sec + DURATION > now.sec){
     digitalWrite(FIRE_PIN,LOW);
-  }
-  delay(1)
+  }*/
+  delay(1);
   nh.spinOnce();
 }

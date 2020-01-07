@@ -58,6 +58,10 @@ pickup_2020.py
 |pick_slide   |左十字|右十字 |
 |pick_turn    |⑦|⑧|
 
+|ソレノイド|push|pull|
+|:-----------:|:----:|:----:|
+|kick_fire    |⑩|⑩ |
+
 # ジョイスティックのボタン配置
 
 ![11204092848272](https://user-images.githubusercontent.com/37164896/71776245-943e4280-2fd1-11ea-819f-cb897f538c96.jpg)

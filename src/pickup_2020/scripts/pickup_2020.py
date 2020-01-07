@@ -27,7 +27,7 @@ def callback_joy(buf):
     buttons.pick_turn = turn_pwm * (buf.buttons[6]-buf.buttons[7])
     buttons.pass_tee = buf.buttons[3] - buf.buttons[1]
     buttons.kick_roll = buf.buttons[5]
-    buttons.Kick_fire = buf.buttons[6]
+    buttons.Kick_fire = buf.buttons[9]
     
     rospy.loginfo(lift_pwm)
     pub.publish(buttons)
