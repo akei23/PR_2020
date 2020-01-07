@@ -32,9 +32,9 @@ struct MotorHandler
 // ============================== arguments ==============================
 
 
-IseMotorDriver pick_slide = IseMotorDriver(0x14);//14
+IseMotorDriver pick_slide = IseMotorDriver(0x15);//14
 IseMotorDriver pick_turn = IseMotorDriver(0x12);//12
-IseMotorDriver pick_lift = IseMotorDriver(0x15);//15    
+IseMotorDriver pick_lift = IseMotorDriver(0x14);//15    
 
 AirCylinder pick_grasp = AirCylinder(PICK_GRASP_SHOT_PIN,PICK_GRASP_PULL_PIN);
 AirCylinder pass_tee = AirCylinder(PASS_TEE_SHOT_PIN,PASS_TEE_PULL_PIN);
@@ -66,7 +66,7 @@ void task_cb(const pr_msg::PrMsg& msg)
 
   pick_slide.setSpeed(pick_slide_handler.target);
   pick_turn.setSpeed(pick_turn_handler.target);
-  pick_slide.setSpeed(pick_lift_handler.target);
+  pick_lift.setSpeed(pick_lift_handler.target);
 
   if(msg.pick_grasp==1) pick_grasp.shot();
   else if(msg.pick_grasp==-1) pick_grasp.pull();
