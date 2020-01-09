@@ -29,7 +29,7 @@ struct PrMsg_
     , pick_turn(0)
     , pick_lift(0)
     , kick_roll(0)
-    , Kick_fire(0)
+    , kick_fire(0)
     , pass_tee(0)  {
     }
   PrMsg_(const ContainerAllocator& _alloc)
@@ -38,7 +38,7 @@ struct PrMsg_
     , pick_turn(0)
     , pick_lift(0)
     , kick_roll(0)
-    , Kick_fire(0)
+    , kick_fire(0)
     , pass_tee(0)  {
   (void)_alloc;
     }
@@ -60,8 +60,8 @@ struct PrMsg_
    typedef int32_t _kick_roll_type;
   _kick_roll_type kick_roll;
 
-   typedef int32_t _Kick_fire_type;
-  _Kick_fire_type Kick_fire;
+   typedef int32_t _kick_fire_type;
+  _kick_fire_type kick_fire;
 
    typedef int32_t _pass_tee_type;
   _pass_tee_type pass_tee;
@@ -144,12 +144,12 @@ struct MD5Sum< ::pr_msg::PrMsg_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "145426011257f665260f74de824eb711";
+    return "0b7477fdb01b1f98d79601f95a7c0be2";
   }
 
   static const char* value(const ::pr_msg::PrMsg_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x145426011257f665ULL;
-  static const uint64_t static_value2 = 0x260f74de824eb711ULL;
+  static const uint64_t static_value1 = 0x0b7477fdb01b1f98ULL;
+  static const uint64_t static_value2 = 0xd79601f95a7c0be2ULL;
 };
 
 template<class ContainerAllocator>
@@ -173,7 +173,7 @@ struct Definition< ::pr_msg::PrMsg_<ContainerAllocator> >
 "int32 pick_turn\n"
 "int32 pick_lift\n"
 "int32 kick_roll\n"
-"int32 Kick_fire\n"
+"int32 kick_fire\n"
 "int32 pass_tee\n"
 ;
   }
@@ -198,7 +198,7 @@ namespace serialization
       stream.next(m.pick_turn);
       stream.next(m.pick_lift);
       stream.next(m.kick_roll);
-      stream.next(m.Kick_fire);
+      stream.next(m.kick_fire);
       stream.next(m.pass_tee);
     }
 
@@ -228,8 +228,8 @@ struct Printer< ::pr_msg::PrMsg_<ContainerAllocator> >
     Printer<int32_t>::stream(s, indent + "  ", v.pick_lift);
     s << indent << "kick_roll: ";
     Printer<int32_t>::stream(s, indent + "  ", v.kick_roll);
-    s << indent << "Kick_fire: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.Kick_fire);
+    s << indent << "kick_fire: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.kick_fire);
     s << indent << "pass_tee: ";
     Printer<int32_t>::stream(s, indent + "  ", v.pass_tee);
   }

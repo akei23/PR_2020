@@ -23,7 +23,7 @@ class PrMsg {
       this.pick_turn = null;
       this.pick_lift = null;
       this.kick_roll = null;
-      this.Kick_fire = null;
+      this.kick_fire = null;
       this.pass_tee = null;
     }
     else {
@@ -57,11 +57,11 @@ class PrMsg {
       else {
         this.kick_roll = 0;
       }
-      if (initObj.hasOwnProperty('Kick_fire')) {
-        this.Kick_fire = initObj.Kick_fire
+      if (initObj.hasOwnProperty('kick_fire')) {
+        this.kick_fire = initObj.kick_fire
       }
       else {
-        this.Kick_fire = 0;
+        this.kick_fire = 0;
       }
       if (initObj.hasOwnProperty('pass_tee')) {
         this.pass_tee = initObj.pass_tee
@@ -84,8 +84,8 @@ class PrMsg {
     bufferOffset = _serializer.int32(obj.pick_lift, buffer, bufferOffset);
     // Serialize message field [kick_roll]
     bufferOffset = _serializer.int32(obj.kick_roll, buffer, bufferOffset);
-    // Serialize message field [Kick_fire]
-    bufferOffset = _serializer.int32(obj.Kick_fire, buffer, bufferOffset);
+    // Serialize message field [kick_fire]
+    bufferOffset = _serializer.int32(obj.kick_fire, buffer, bufferOffset);
     // Serialize message field [pass_tee]
     bufferOffset = _serializer.int32(obj.pass_tee, buffer, bufferOffset);
     return bufferOffset;
@@ -105,8 +105,8 @@ class PrMsg {
     data.pick_lift = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [kick_roll]
     data.kick_roll = _deserializer.int32(buffer, bufferOffset);
-    // Deserialize message field [Kick_fire]
-    data.Kick_fire = _deserializer.int32(buffer, bufferOffset);
+    // Deserialize message field [kick_fire]
+    data.kick_fire = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [pass_tee]
     data.pass_tee = _deserializer.int32(buffer, bufferOffset);
     return data;
@@ -123,7 +123,7 @@ class PrMsg {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '145426011257f665260f74de824eb711';
+    return '0b7477fdb01b1f98d79601f95a7c0be2';
   }
 
   static messageDefinition() {
@@ -134,7 +134,7 @@ class PrMsg {
     int32 pick_turn
     int32 pick_lift
     int32 kick_roll
-    int32 Kick_fire
+    int32 kick_fire
     int32 pass_tee
     
     `;
@@ -181,11 +181,11 @@ class PrMsg {
       resolved.kick_roll = 0
     }
 
-    if (msg.Kick_fire !== undefined) {
-      resolved.Kick_fire = msg.Kick_fire;
+    if (msg.kick_fire !== undefined) {
+      resolved.kick_fire = msg.kick_fire;
     }
     else {
-      resolved.Kick_fire = 0
+      resolved.kick_fire = 0
     }
 
     if (msg.pass_tee !== undefined) {

@@ -38,7 +38,7 @@ void kick_cb(const pr_msg::PrMsg& msg){
   static long encDist;
   static bool flag = false;
   
-  fire_order = msg.Kick_fire;
+  fire_order = msg.kick_fire;
 
   fire(fire_order);
   
