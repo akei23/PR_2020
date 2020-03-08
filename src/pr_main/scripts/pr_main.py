@@ -7,6 +7,7 @@ from pr_msg import PrMsg
 #definitions and initalization of variables
 order_buf = PrMsg() #use as flags
 dict_order = {"kick_fire":0,"kick_roll":0,"autorun":0,}
+
 #definitions of pubkisher 
 pub = rospy.Publisher("pr_main_order", PrMsg, queue_size=None)
 
@@ -50,12 +51,6 @@ def _main():
     #Main loop of PR
     while not rospy.is_shutdown():
         #pick up pass ball and throw them to TR (x4)
-        num = 0
-        if dict_order["autorun"] == -1:
-            order_buf.autorun = 1
-            pub.publish(order_buf)
-            order_buf.autorun = 0 if waitjob("autorun") == 0 else 3
-            pub.publish(order_buf)
 
         #load kick ball (x3)
         #kick the ball (x3)
