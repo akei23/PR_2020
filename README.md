@@ -22,15 +22,12 @@
 pickup_2020.py  
 
 	custom_msg  
-	pr_msg/Pr_Msg  
-		int32 pick_slide :ピックアップ機構スライド方向のモータのduty(slide_pwm,0,-slide_pwm)
-		int32 pick_grasp :ピックアップ機構アームのエアシリンダの方向（1,0,-1）
-		int32 pick_turn 　:ピックアップ機構yaw軸方向のモータのduty(turn_pwm,0,-turn_pwm)
-		int32 pick_lift 　:ピックアップ機構上昇方向のモータのduty(lift_pwm,0,-lift_pwm)
-		int32 kick_roll 　:ピックアップ機構スライド方向のモータのduty
-		int32 Kick_fire 　:ピックアップ機構スライド方向のモータのduty
-		int32 pass_tee 　　:パス用のティーを射出するエアシリンダの方向(1,0,-1)
-		
+	pr_msg/PrMsg  
+		（Prmsg共通）0:待機, 1:動作中（指令）, 2:動作終了, 3:エラー
+		int32 kick_roll 　:キック機構の巻取り
+		int32 Kick_fire 　:キック機構のキック
+		int32 autorun     :自動走行
+	
 		
 
 	param  
