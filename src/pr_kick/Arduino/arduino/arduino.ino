@@ -65,9 +65,6 @@ void loop(){
   //kick
   if(order_kick==1){
     digitalWrite(SOLENOID_PIN, HIGH);
-              //debug
-    data.data = order_wind;
-    pub.publish(&data);
   }else{
     digitalWrite(SOLENOID_PIN, LOW);
   }
@@ -82,6 +79,7 @@ void winding(){
     
   //normal rotation
   do{
+    nh.spinOnce();
     motor.setSpeed(pw);
     enc = motor.encorder();
     delay(MAIN_DELAY);
@@ -91,6 +89,7 @@ void winding(){
     
   //reverse rotation
   do{
+    nh.spinOnce();
     motor.setSpeed(-pw);
     enc = motor.encorder();
     delay(MAIN_DELAY);
