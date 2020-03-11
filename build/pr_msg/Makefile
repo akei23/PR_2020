@@ -80,15 +80,17 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -101,17 +103,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -123,17 +114,26 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,34 +168,64 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-pr_msg/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : pr_msg/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/rule:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/rule
+.PHONY : pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_py: pr_msg/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+pr_msg_generate_messages_eus: pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/rule
 
-.PHONY : std_msgs_generate_messages_py
+.PHONY : pr_msg_generate_messages_eus
 
 # fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/std_msgs_generate_messages_py.dir/build.make pr_msg/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
+pr_msg_generate_messages_eus/fast:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/build.make pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/build
+.PHONY : pr_msg_generate_messages_eus/fast
 
 # Convenience name for target.
-pr_msg/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : pr_msg/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/rule:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/rule
+.PHONY : pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_nodejs: pr_msg/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+pr_msg_generate_messages_cpp: pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/rule
 
-.PHONY : std_msgs_generate_messages_nodejs
+.PHONY : pr_msg_generate_messages_cpp
 
 # fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make pr_msg/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
+pr_msg_generate_messages_cpp/fast:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/build.make pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/build
+.PHONY : pr_msg_generate_messages_cpp/fast
+
+# Convenience name for target.
+pr_msg/CMakeFiles/pr_msg_generate_messages.dir/rule:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_generate_messages.dir/rule
+.PHONY : pr_msg/CMakeFiles/pr_msg_generate_messages.dir/rule
+
+# Convenience name for target.
+pr_msg_generate_messages: pr_msg/CMakeFiles/pr_msg_generate_messages.dir/rule
+
+.PHONY : pr_msg_generate_messages
+
+# fast build rule for target.
+pr_msg_generate_messages/fast:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_generate_messages.dir/build.make pr_msg/CMakeFiles/pr_msg_generate_messages.dir/build
+.PHONY : pr_msg_generate_messages/fast
+
+# Convenience name for target.
+pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/rule:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/rule
+.PHONY : pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+pr_msg_generate_messages_lisp: pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/rule
+
+.PHONY : pr_msg_generate_messages_lisp
+
+# fast build rule for target.
+pr_msg_generate_messages_lisp/fast:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/build.make pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/build
+.PHONY : pr_msg_generate_messages_lisp/fast
 
 # Convenience name for target.
 pr_msg/CMakeFiles/pr_msg_geneus.dir/rule:
@@ -213,19 +243,34 @@ pr_msg_geneus/fast:
 .PHONY : pr_msg_geneus/fast
 
 # Convenience name for target.
-pr_msg/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : pr_msg/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+pr_msg/CMakeFiles/pr_msg_gencpp.dir/rule:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_gencpp.dir/rule
+.PHONY : pr_msg/CMakeFiles/pr_msg_gencpp.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_lisp: pr_msg/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+pr_msg_gencpp: pr_msg/CMakeFiles/pr_msg_gencpp.dir/rule
 
-.PHONY : std_msgs_generate_messages_lisp
+.PHONY : pr_msg_gencpp
 
 # fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make pr_msg/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
+pr_msg_gencpp/fast:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_gencpp.dir/build.make pr_msg/CMakeFiles/pr_msg_gencpp.dir/build
+.PHONY : pr_msg_gencpp/fast
+
+# Convenience name for target.
+pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/rule:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/rule
+.PHONY : pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/rule
+
+# Convenience name for target.
+_pr_msg_generate_messages_check_deps_PrMsg: pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/rule
+
+.PHONY : _pr_msg_generate_messages_check_deps_PrMsg
+
+# fast build rule for target.
+_pr_msg_generate_messages_check_deps_PrMsg/fast:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/build.make pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/build
+.PHONY : _pr_msg_generate_messages_check_deps_PrMsg/fast
 
 # Convenience name for target.
 pr_msg/CMakeFiles/pr_msg_generate_messages_py.dir/rule:
@@ -258,139 +303,19 @@ pr_msg_generate_messages_nodejs/fast:
 .PHONY : pr_msg_generate_messages_nodejs/fast
 
 # Convenience name for target.
-pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/rule
-.PHONY : pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/rule
+pr_msg/CMakeFiles/pr_msg_gennodejs.dir/rule:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_gennodejs.dir/rule
+.PHONY : pr_msg/CMakeFiles/pr_msg_gennodejs.dir/rule
 
 # Convenience name for target.
-pr_msg_generate_messages_lisp: pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/rule
+pr_msg_gennodejs: pr_msg/CMakeFiles/pr_msg_gennodejs.dir/rule
 
-.PHONY : pr_msg_generate_messages_lisp
+.PHONY : pr_msg_gennodejs
 
 # fast build rule for target.
-pr_msg_generate_messages_lisp/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/build.make pr_msg/CMakeFiles/pr_msg_generate_messages_lisp.dir/build
-.PHONY : pr_msg_generate_messages_lisp/fast
-
-# Convenience name for target.
-pr_msg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : pr_msg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_cpp: pr_msg/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make pr_msg/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-pr_msg/CMakeFiles/pr_msg_gencpp.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_gencpp.dir/rule
-.PHONY : pr_msg/CMakeFiles/pr_msg_gencpp.dir/rule
-
-# Convenience name for target.
-pr_msg_gencpp: pr_msg/CMakeFiles/pr_msg_gencpp.dir/rule
-
-.PHONY : pr_msg_gencpp
-
-# fast build rule for target.
-pr_msg_gencpp/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_gencpp.dir/build.make pr_msg/CMakeFiles/pr_msg_gencpp.dir/build
-.PHONY : pr_msg_gencpp/fast
-
-# Convenience name for target.
-pr_msg/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : pr_msg/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_eus: pr_msg/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-
-.PHONY : std_msgs_generate_messages_eus
-
-# fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make pr_msg/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/rule
-.PHONY : pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/rule
-
-# Convenience name for target.
-_pr_msg_generate_messages_check_deps_PrMsg: pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/rule
-
-.PHONY : _pr_msg_generate_messages_check_deps_PrMsg
-
-# fast build rule for target.
-_pr_msg_generate_messages_check_deps_PrMsg/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/build.make pr_msg/CMakeFiles/_pr_msg_generate_messages_check_deps_PrMsg.dir/build
-.PHONY : _pr_msg_generate_messages_check_deps_PrMsg/fast
-
-# Convenience name for target.
-pr_msg/CMakeFiles/pr_msg_generate_messages.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_generate_messages.dir/rule
-.PHONY : pr_msg/CMakeFiles/pr_msg_generate_messages.dir/rule
-
-# Convenience name for target.
-pr_msg_generate_messages: pr_msg/CMakeFiles/pr_msg_generate_messages.dir/rule
-
-.PHONY : pr_msg_generate_messages
-
-# fast build rule for target.
-pr_msg_generate_messages/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_generate_messages.dir/build.make pr_msg/CMakeFiles/pr_msg_generate_messages.dir/build
-.PHONY : pr_msg_generate_messages/fast
-
-# Convenience name for target.
-pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/rule
-.PHONY : pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-pr_msg_generate_messages_cpp: pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/rule
-
-.PHONY : pr_msg_generate_messages_cpp
-
-# fast build rule for target.
-pr_msg_generate_messages_cpp/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/build.make pr_msg/CMakeFiles/pr_msg_generate_messages_cpp.dir/build
-.PHONY : pr_msg_generate_messages_cpp/fast
-
-# Convenience name for target.
-pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/rule
-.PHONY : pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-pr_msg_generate_messages_eus: pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/rule
-
-.PHONY : pr_msg_generate_messages_eus
-
-# fast build rule for target.
-pr_msg_generate_messages_eus/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/build.make pr_msg/CMakeFiles/pr_msg_generate_messages_eus.dir/build
-.PHONY : pr_msg_generate_messages_eus/fast
-
-# Convenience name for target.
-pr_msg/CMakeFiles/pr_msg_genpy.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_genpy.dir/rule
-.PHONY : pr_msg/CMakeFiles/pr_msg_genpy.dir/rule
-
-# Convenience name for target.
-pr_msg_genpy: pr_msg/CMakeFiles/pr_msg_genpy.dir/rule
-
-.PHONY : pr_msg_genpy
-
-# fast build rule for target.
-pr_msg_genpy/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_genpy.dir/build.make pr_msg/CMakeFiles/pr_msg_genpy.dir/build
-.PHONY : pr_msg_genpy/fast
+pr_msg_gennodejs/fast:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_gennodejs.dir/build.make pr_msg/CMakeFiles/pr_msg_gennodejs.dir/build
+.PHONY : pr_msg_gennodejs/fast
 
 # Convenience name for target.
 pr_msg/CMakeFiles/pr_msg_genlisp.dir/rule:
@@ -408,19 +333,19 @@ pr_msg_genlisp/fast:
 .PHONY : pr_msg_genlisp/fast
 
 # Convenience name for target.
-pr_msg/CMakeFiles/pr_msg_gennodejs.dir/rule:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_gennodejs.dir/rule
-.PHONY : pr_msg/CMakeFiles/pr_msg_gennodejs.dir/rule
+pr_msg/CMakeFiles/pr_msg_genpy.dir/rule:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pr_msg/CMakeFiles/pr_msg_genpy.dir/rule
+.PHONY : pr_msg/CMakeFiles/pr_msg_genpy.dir/rule
 
 # Convenience name for target.
-pr_msg_gennodejs: pr_msg/CMakeFiles/pr_msg_gennodejs.dir/rule
+pr_msg_genpy: pr_msg/CMakeFiles/pr_msg_genpy.dir/rule
 
-.PHONY : pr_msg_gennodejs
+.PHONY : pr_msg_genpy
 
 # fast build rule for target.
-pr_msg_gennodejs/fast:
-	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_gennodejs.dir/build.make pr_msg/CMakeFiles/pr_msg_gennodejs.dir/build
-.PHONY : pr_msg_gennodejs/fast
+pr_msg_genpy/fast:
+	cd /home/akei/catkin_ws/build && $(MAKE) -f pr_msg/CMakeFiles/pr_msg_genpy.dir/build.make pr_msg/CMakeFiles/pr_msg_genpy.dir/build
+.PHONY : pr_msg_genpy/fast
 
 # Help Target
 help:
@@ -430,28 +355,23 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... pr_msg_geneus"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... pr_msg_generate_messages_py"
-	@echo "... pr_msg_generate_messages_nodejs"
-	@echo "... pr_msg_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... pr_msg_gencpp"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... _pr_msg_generate_messages_check_deps_PrMsg"
-	@echo "... pr_msg_generate_messages"
-	@echo "... pr_msg_generate_messages_cpp"
 	@echo "... install"
 	@echo "... pr_msg_generate_messages_eus"
-	@echo "... pr_msg_genpy"
-	@echo "... pr_msg_genlisp"
+	@echo "... pr_msg_generate_messages_cpp"
+	@echo "... pr_msg_generate_messages"
+	@echo "... pr_msg_generate_messages_lisp"
+	@echo "... pr_msg_geneus"
+	@echo "... pr_msg_gencpp"
+	@echo "... _pr_msg_generate_messages_check_deps_PrMsg"
+	@echo "... rebuild_cache"
+	@echo "... pr_msg_generate_messages_py"
+	@echo "... pr_msg_generate_messages_nodejs"
 	@echo "... pr_msg_gennodejs"
+	@echo "... pr_msg_genlisp"
+	@echo "... pr_msg_genpy"
+	@echo "... test"
+	@echo "... edit_cache"
+	@echo "... list_install_components"
 .PHONY : help
 
 

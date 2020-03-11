@@ -7,19 +7,16 @@ import struct
 
 
 class PrMsg(genpy.Message):
-  _md5sum = "0b7477fdb01b1f98d79601f95a7c0be2"
+  _md5sum = "ef8e6c4f42267afdb6b4ce014b5df775"
   _type = "pr_msg/PrMsg"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """int32 pick_slide
-int32 pick_grasp
-int32 pick_turn
-int32 pick_lift
-int32 kick_roll
-int32 kick_fire
-int32 pass_tee
+  _full_text = """int32 pick_ball
+int32 pass_ball
+int32 load_ball
+int32 kick_ball
 """
-  __slots__ = ['pick_slide','pick_grasp','pick_turn','pick_lift','kick_roll','kick_fire','pass_tee']
-  _slot_types = ['int32','int32','int32','int32','int32','int32','int32']
+  __slots__ = ['pick_ball','pass_ball','load_ball','kick_ball']
+  _slot_types = ['int32','int32','int32','int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -29,7 +26,7 @@ int32 pass_tee
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       pick_slide,pick_grasp,pick_turn,pick_lift,kick_roll,kick_fire,pass_tee
+       pick_ball,pass_ball,load_ball,kick_ball
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -38,28 +35,19 @@ int32 pass_tee
     if args or kwds:
       super(PrMsg, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
-      if self.pick_slide is None:
-        self.pick_slide = 0
-      if self.pick_grasp is None:
-        self.pick_grasp = 0
-      if self.pick_turn is None:
-        self.pick_turn = 0
-      if self.pick_lift is None:
-        self.pick_lift = 0
-      if self.kick_roll is None:
-        self.kick_roll = 0
-      if self.kick_fire is None:
-        self.kick_fire = 0
-      if self.pass_tee is None:
-        self.pass_tee = 0
+      if self.pick_ball is None:
+        self.pick_ball = 0
+      if self.pass_ball is None:
+        self.pass_ball = 0
+      if self.load_ball is None:
+        self.load_ball = 0
+      if self.kick_ball is None:
+        self.kick_ball = 0
     else:
-      self.pick_slide = 0
-      self.pick_grasp = 0
-      self.pick_turn = 0
-      self.pick_lift = 0
-      self.kick_roll = 0
-      self.kick_fire = 0
-      self.pass_tee = 0
+      self.pick_ball = 0
+      self.pass_ball = 0
+      self.load_ball = 0
+      self.kick_ball = 0
 
   def _get_types(self):
     """
@@ -74,7 +62,7 @@ int32 pass_tee
     """
     try:
       _x = self
-      buff.write(_get_struct_7i().pack(_x.pick_slide, _x.pick_grasp, _x.pick_turn, _x.pick_lift, _x.kick_roll, _x.kick_fire, _x.pass_tee))
+      buff.write(_get_struct_4i().pack(_x.pick_ball, _x.pass_ball, _x.load_ball, _x.kick_ball))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -87,8 +75,8 @@ int32 pass_tee
       end = 0
       _x = self
       start = end
-      end += 28
-      (_x.pick_slide, _x.pick_grasp, _x.pick_turn, _x.pick_lift, _x.kick_roll, _x.kick_fire, _x.pass_tee,) = _get_struct_7i().unpack(str[start:end])
+      end += 16
+      (_x.pick_ball, _x.pass_ball, _x.load_ball, _x.kick_ball,) = _get_struct_4i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -102,7 +90,7 @@ int32 pass_tee
     """
     try:
       _x = self
-      buff.write(_get_struct_7i().pack(_x.pick_slide, _x.pick_grasp, _x.pick_turn, _x.pick_lift, _x.kick_roll, _x.kick_fire, _x.pass_tee))
+      buff.write(_get_struct_4i().pack(_x.pick_ball, _x.pass_ball, _x.load_ball, _x.kick_ball))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -116,8 +104,8 @@ int32 pass_tee
       end = 0
       _x = self
       start = end
-      end += 28
-      (_x.pick_slide, _x.pick_grasp, _x.pick_turn, _x.pick_lift, _x.kick_roll, _x.kick_fire, _x.pass_tee,) = _get_struct_7i().unpack(str[start:end])
+      end += 16
+      (_x.pick_ball, _x.pass_ball, _x.load_ball, _x.kick_ball,) = _get_struct_4i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -126,9 +114,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_7i = None
-def _get_struct_7i():
-    global _struct_7i
-    if _struct_7i is None:
-        _struct_7i = struct.Struct("<7i")
-    return _struct_7i
+_struct_4i = None
+def _get_struct_4i():
+    global _struct_4i
+    if _struct_4i is None:
+        _struct_4i = struct.Struct("<4i")
+    return _struct_4i

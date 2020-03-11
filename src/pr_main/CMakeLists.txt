@@ -8,9 +8,11 @@ project(pr_main)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  PrMsg
   rospy
+  roscpp
   std_msgs
+  pr_msg
+#  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -69,8 +71,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
-#   DEPENDENCIES
-#   std_msgs
+#  DEPENDENCIES
+#  std_msgs
 # )
 
 ################################################
@@ -105,8 +107,8 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pr_main
-#  CATKIN_DEPENDS PrMsg rospy std_msgs
-#  DEPENDS system_lib
+ CATKIN_DEPENDS  rospy std_msgs pr_msg
+# DEPENDS system_lib
 )
 
 ###########

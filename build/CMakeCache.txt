@@ -251,6 +251,9 @@ PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python2
 //Specify specific Python version to use ('major.minor' or 'major')
 PYTHON_VERSION:STRING=2
 
+//The directory containing a CMake configuration file for PrMsg.
+PrMsg_DIR:PATH=PrMsg_DIR-NOTFOUND
+
 //Value Computed by CMake
 Project_BINARY_DIR:STATIC=/home/akei/catkin_ws/build
 
@@ -371,6 +374,18 @@ pickup_2020_BINARY_DIR:STATIC=/home/akei/catkin_ws/build/pickup_2020
 
 //Value Computed by CMake
 pickup_2020_SOURCE_DIR:STATIC=/home/akei/catkin_ws/src/pickup_2020
+
+//Value Computed by CMake
+pr_kick_BINARY_DIR:STATIC=/home/akei/catkin_ws/build/pr_kick
+
+//Value Computed by CMake
+pr_kick_SOURCE_DIR:STATIC=/home/akei/catkin_ws/src/pr_kick
+
+//Value Computed by CMake
+pr_main_BINARY_DIR:STATIC=/home/akei/catkin_ws/build/pr_main
+
+//Value Computed by CMake
+pr_main_SOURCE_DIR:STATIC=/home/akei/catkin_ws/src/pr_main
 
 //Value Computed by CMake
 pr_msg_BINARY_DIR:STATIC=/home/akei/catkin_ws/build/pr_msg
@@ -521,7 +536,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

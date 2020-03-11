@@ -24,47 +24,32 @@ struct PrMsg_
   typedef PrMsg_<ContainerAllocator> Type;
 
   PrMsg_()
-    : pick_slide(0)
-    , pick_grasp(0)
-    , pick_turn(0)
-    , pick_lift(0)
-    , kick_roll(0)
-    , kick_fire(0)
-    , pass_tee(0)  {
+    : pick_ball(0)
+    , pass_ball(0)
+    , load_ball(0)
+    , kick_ball(0)  {
     }
   PrMsg_(const ContainerAllocator& _alloc)
-    : pick_slide(0)
-    , pick_grasp(0)
-    , pick_turn(0)
-    , pick_lift(0)
-    , kick_roll(0)
-    , kick_fire(0)
-    , pass_tee(0)  {
+    : pick_ball(0)
+    , pass_ball(0)
+    , load_ball(0)
+    , kick_ball(0)  {
   (void)_alloc;
     }
 
 
 
-   typedef int32_t _pick_slide_type;
-  _pick_slide_type pick_slide;
+   typedef int32_t _pick_ball_type;
+  _pick_ball_type pick_ball;
 
-   typedef int32_t _pick_grasp_type;
-  _pick_grasp_type pick_grasp;
+   typedef int32_t _pass_ball_type;
+  _pass_ball_type pass_ball;
 
-   typedef int32_t _pick_turn_type;
-  _pick_turn_type pick_turn;
+   typedef int32_t _load_ball_type;
+  _load_ball_type load_ball;
 
-   typedef int32_t _pick_lift_type;
-  _pick_lift_type pick_lift;
-
-   typedef int32_t _kick_roll_type;
-  _kick_roll_type kick_roll;
-
-   typedef int32_t _kick_fire_type;
-  _kick_fire_type kick_fire;
-
-   typedef int32_t _pass_tee_type;
-  _pass_tee_type pass_tee;
+   typedef int32_t _kick_ball_type;
+  _kick_ball_type kick_ball;
 
 
 
@@ -144,12 +129,12 @@ struct MD5Sum< ::pr_msg::PrMsg_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "0b7477fdb01b1f98d79601f95a7c0be2";
+    return "ef8e6c4f42267afdb6b4ce014b5df775";
   }
 
   static const char* value(const ::pr_msg::PrMsg_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x0b7477fdb01b1f98ULL;
-  static const uint64_t static_value2 = 0xd79601f95a7c0be2ULL;
+  static const uint64_t static_value1 = 0xef8e6c4f42267afdULL;
+  static const uint64_t static_value2 = 0xb6b4ce014b5df775ULL;
 };
 
 template<class ContainerAllocator>
@@ -168,13 +153,10 @@ struct Definition< ::pr_msg::PrMsg_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int32 pick_slide\n"
-"int32 pick_grasp\n"
-"int32 pick_turn\n"
-"int32 pick_lift\n"
-"int32 kick_roll\n"
-"int32 kick_fire\n"
-"int32 pass_tee\n"
+    return "int32 pick_ball\n"
+"int32 pass_ball\n"
+"int32 load_ball\n"
+"int32 kick_ball\n"
 ;
   }
 
@@ -193,13 +175,10 @@ namespace serialization
   {
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
-      stream.next(m.pick_slide);
-      stream.next(m.pick_grasp);
-      stream.next(m.pick_turn);
-      stream.next(m.pick_lift);
-      stream.next(m.kick_roll);
-      stream.next(m.kick_fire);
-      stream.next(m.pass_tee);
+      stream.next(m.pick_ball);
+      stream.next(m.pass_ball);
+      stream.next(m.load_ball);
+      stream.next(m.kick_ball);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -218,20 +197,14 @@ struct Printer< ::pr_msg::PrMsg_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::pr_msg::PrMsg_<ContainerAllocator>& v)
   {
-    s << indent << "pick_slide: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.pick_slide);
-    s << indent << "pick_grasp: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.pick_grasp);
-    s << indent << "pick_turn: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.pick_turn);
-    s << indent << "pick_lift: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.pick_lift);
-    s << indent << "kick_roll: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.kick_roll);
-    s << indent << "kick_fire: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.kick_fire);
-    s << indent << "pass_tee: ";
-    Printer<int32_t>::stream(s, indent + "  ", v.pass_tee);
+    s << indent << "pick_ball: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.pick_ball);
+    s << indent << "pass_ball: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.pass_ball);
+    s << indent << "load_ball: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.load_ball);
+    s << indent << "kick_ball: ";
+    Printer<int32_t>::stream(s, indent + "  ", v.kick_ball);
   }
 };
 
