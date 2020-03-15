@@ -5,7 +5,7 @@
 
 //constant
 const int MAIN_FREQUENCY = 10; //メインループ周波数[Hz]
-const int POWER = 255; //モータパワー (0~255)
+const int POWER = 200; //モータパワー (0~255)
 
 //global variable
 ros::Subscriber sub_beg; //subscriber from upper layer (tpc"kick_tpc")

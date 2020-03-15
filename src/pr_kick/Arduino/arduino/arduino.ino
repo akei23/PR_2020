@@ -31,8 +31,8 @@ ros::Subscriber<std_msgs::Int16MultiArray>  sub("kick_order",&callback);
 std_msgs::Int16MultiArray data;
 ros::Publisher pub("kick_fin",&data);
 //debug
-//std_msgs::Float64 data_d;
-//ros::Publisher pub_d("debug_tpc",&data_d);
+//std_msgs::Float64 debug;
+//ros::Publisher pub_d("debug_tpc",&debug);
 
 IseMotorDriver motor(ADDR);
   
@@ -70,7 +70,8 @@ void loop(){
   }else{
     digitalWrite(SOLENOID_PIN,LOW);
   }
-  
+  //debug.data = 2;
+  //pub_d.publish(&debug);
   delay(MAIN_DELAY); 
 }
 
@@ -78,43 +79,29 @@ void loop(){
 void winding(){
   //value of touch sensor (OFF:LOW ON:HIGH) 
   long enc = 0; //value of encoder [step];
-    
+
   //normal rotation
   do{
     nh.spinOnce();
     if(order_wind<0) goto RESET;
-    
+
     motor.setSpeed(pw);
     enc = motor.encorder();
-
-    //data_d.data = 1;
-    //pub_d.publish(&data_d);
-    
     delay(MAIN_DELAY);
   }while(digitalRead(TOUCH_PIN) == LOW);
-
-  //data_d.data = 2;
-  //pub_d.publish(&data_d);
     
   motor.setSpeed(0);
-  
+
   //reverse rotation
   do{
     nh.spinOnce();
     if(order_wind<0) goto RESET;
-    
+
     motor.setSpeed(-pw);
     enc = motor.encorder();
-
-    //data_d.data = 3;
-    //pub_d.publish(&data_d);
-  
     delay(MAIN_DELAY);
-  }while(enc<0);
+  }while(enc>0);
 
-    //data_d.data = 4;
-    //pub_d.publish(&data_d);
-    
   //finish
   data.data[0] = 0;
   pub.publish(&data);
@@ -125,13 +112,18 @@ RESET:
 
 void launching(){
   nh.spinOnce();
-  if(order_wind<0) goto RESET;
+  if(order_launch<0) goto RESET;
+
+  //debug.data = 0;
+  //pub_d.publish(&debug);
 
   digitalWrite(SOLENOID_PIN,HIGH);
 
   if(digitalRead(TOUCH_PIN)==LOW){
     data.data[1] = 0;
     pub.publish(&data);
+    //debug.data = 1;
+    //pub_d.publish(&debug);
   }
 RESET:
 ;
